@@ -17,7 +17,8 @@ def send_file_over_serial(file_path, port, baud_rate=9600, delay=1):
                 ser.write(b'\r')  # Send newline character
                 print(f"Sent: {line}")
                 # Wait for a specified delay
-                time.sleep(delay)
+                adjusted_delay = delay * len(line) / 10
+                time.sleep(adjusted_delay)
     except Exception as e:
         print(f"Error: {e}")
     finally:
