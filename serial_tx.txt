@@ -1,0 +1,11 @@
+10 PRINT "Input string:"
+15 IN#2
+20 REM print chr$(1);"0D"
+*30 PRINT CHR$(1);"14B"
+35 PR#2
+40 INPUT A$
+60 print "hello world!"
+65 FOR I = 1 TO 500 : NEXT I
+70 goto 60
+80 END
+*RUN

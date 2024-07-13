@@ -1,0 +1,9 @@
+10 REM Starfield animation in Hi-Res graphics
+20 HGR2 : HCOLOR=3
+30 XS = 255
+40 FOR X = 1 TO XS
+*50 HCOLOR=0 : HPLOT X,1 TO X,190
+60 HCOLOR=3 : HPLOT X+1,1 TO X+1,190
+70 NEXT X
+80 GOTO40
+*RUN

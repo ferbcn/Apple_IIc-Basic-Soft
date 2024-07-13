@@ -1,0 +1,25 @@
+10 PRINT "Enter the string to send:"
+20 INPUT A$
+30 PRINT "Sending: "; A$
+40 POKE 49234,0 : REM Open IN#2 for output
+50 PRINT CHR$(4);"PR#2"    : REM Direct output to IN#2
+60 PRINT CHR$(4);"B300"    : REM Set baud rate to 300
+70 FOR I = 1 TO LEN(A$)
+80   PRINT MID$(A$,I,1);
+90 NEXT I
+100 PRINT : REM Send a carriage return after the string
+110 PRINT CHR$(4);"PR#0"   : REM Direct output back to main console
+120 POKE 49234,0 : REM Open IN#2 for input
+130 PRINT "Waiting for response..."
+140 B$ = ""
+150 REM Wait for the first character
+160 IF PEEK(49234) < 128 THEN GOTO 160
+170 REM Read characters until a carriage return is received
+180 FOR I = 1 TO 255
+190   X = PEEK(49234)
+200   IF X >= 128 THEN B$ = B$ + CHR$(X - 128)
+210   IF X = 141 THEN GOTO 230
+220 NEXT I
+230 PRINT "Received: "; B$
+240 END
+*RUN

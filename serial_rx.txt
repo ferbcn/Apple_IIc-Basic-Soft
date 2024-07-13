@@ -1,0 +1,7 @@
+10 print chr$(4);"IN#2"
+20 j$=""
+30 GET A$
+40 J$=J$+A$
+50 print j$
+60 goto 20
+RUN

@@ -1,0 +1,21 @@
+10 REM Digital Rain Effect
+20 HOME : PRINT "Press Q to quit"
+25 REM DELAY
+30 FOR I = 1 TO 1000 : NEXT I : HOME
+35 DIM A(40)
+40 FOR I = 1 TO 40
+50 A(I) = RND(1) * 20 + 1
+70 NEXT I
+
+90 FOR T = 1 TO 1000
+100 IF PEEK(49152) = 32 THEN END : REM Press Space Bar to quit
+110 FOR I = 1 TO 40
+115 VTAB A(I) : HTAB I : PRINT " "
+130 A(I) = A(I) + 1
+140 IF A(I) > 24 THEN A(I) = 1
+170 VTAB A(I) : HTAB I : PRINT "X"
+180 NEXT I
+190 NEXT T
+210 END
+
+RUN

@@ -1,0 +1,15 @@
+10 PRINT "Enter the string to send:"
+20 INPUT A$
+30 PRINT "Sending: "; A$
+40 PRINT CHR$(4);"PR#2"    : REM Enable serial output to IN#2
+45 PRINT CHR$(4);"IN#2"    : REM Open IN#2 for output
+47 PRINT CHR$(4);"B300"    : REM Set baud rate to 300
+50 FOR I = 1 TO LEN(A$)
+60   PRINT MID$(A$,I,1);
+70 NEXT I
+80 PRINT : REM Send a carriage return after the string
+90 PRINT CHR$(4);"PR#0"    : REM Return control to the main console
+100 PRINT "Waiting for response..."
+110 INPUT B$
+120 PRINT "Received: "; B$
+130 END
